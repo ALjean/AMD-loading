@@ -9,7 +9,8 @@ const nodeStatic = require('node-static');
 
 const APP_NAMES = {
     angular: 'angular-app',
-    vue: 'vue-app'
+    vue: 'vue-app',
+    react: 'react-app'
 };
 
 const getFramesStaticPath = function(name){
@@ -18,6 +19,7 @@ const getFramesStaticPath = function(name){
 
 const angularApp = new nodeStatic.Server(getFramesStaticPath(APP_NAMES.angular));
 const vueApp = new nodeStatic.Server(getFramesStaticPath(APP_NAMES.vue));
+const reactApp = new nodeStatic.Server(getFramesStaticPath(APP_NAMES.react));
 
 const tailor = new Tailor({
     templatesPath: __dirname + '/templates'
@@ -26,7 +28,6 @@ const tailor = new Tailor({
 // Root Server
 http
     .createServer((req, res) => {
-        console.log(req.url);
 
         if (req.url.startsWith('/static')) {
             fs.readFile(path.join(__dirname, req.url), (err, data) => {
@@ -43,8 +44,6 @@ http
         }
 
         if (req.url.startsWith('/vue')) {
-
-
             fs.readFile(path.join(getFramesStaticPath(APP_NAMES.vue), req.url), (err, data) => {
                 if (err) {
                     console.log(err);
@@ -72,6 +71,20 @@ http
             return;
         }
 
+        if (req.url.startsWith('/react')) {
+            fs.readFile(path.join(getFramesStaticPath(APP_NAMES.react), req.url), (err, data) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    res.end(`Error getting the file: ${err}.`);
+                }
+
+                res.setHeader('Content-type', 'text/javascript');
+                res.end(data);
+            });
+            return;
+        }
+
         tailor.requestHandler(req, res);
     })
     .listen(8080, function() {
@@ -80,21 +93,14 @@ http
 
 
 // Fragment servers - Any http server that can serve fragments
-http
-    .createServer((req, res) => {
-        res.writeHead(200, {
-            'Content-Type': 'text/html'
-        });
-        res.end(`
-            <div>Fragment 1</div>
-            <script>
-                scSDK.load('v1', (sdk) => console.log('Frame loaded SC SDK v1', sdk));
-            </script>
-        `);
-    })
-    .listen(8081, function() {
-        console.log('Fragment Server listening on port 8081');
-    });
+
+http.createServer((request, response) => {
+    request.addListener('end',  () => {
+        reactApp.serve(request, response);
+    }).resume();
+}).listen(8081, function () {
+    console.log('React Fragment Server listening on port 8081');
+});
 
 http.createServer((request, response) => {
     request.addListener('end',  () => {

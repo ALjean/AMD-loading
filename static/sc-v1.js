@@ -2,6 +2,6 @@ console.log('entered SC SDK v1');
 
 define(() => {
     return {
-        qwe: 'qweqw'
+        data: 'data SDK v1'
     };
 });

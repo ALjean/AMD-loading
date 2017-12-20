@@ -1,5 +1,5 @@
 {
-  "name": "vue-fragment-app",
+  "name": "vue-app",
   "version": "1.0.0",
   "description": "",
   "author": "Stas",
@@ -7,8 +7,7 @@
     "build": "./node_modules/.bin/webpack"
   },
   "dependencies": {
-    "vue": "^2.5.3",
-    "node-static": "^0.7.10"
+    "vue": "^2.5.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
