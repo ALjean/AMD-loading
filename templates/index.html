@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Yo</title>
+        <script>
+            scSDK = {
+                load (version, callback) {
+                    require([`/static/sc-${version}.js`], callback);
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <h1>Basic</h1>
+        <fragment src="http://localhost:8081"></fragment>
+        <fragment src="http://localhost:8082"></fragment>
+        <fragment src="http://localhost:8083"></fragment>
+    </body>
+</html>

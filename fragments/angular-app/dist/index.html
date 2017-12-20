@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Angular</title>
+    <script src="angular.bundle.js"></script>
+
+    <script>
+
+        var script = document.createElement('script');
+        script.src = 'http://localhost:8080/static/sc-v1.js';
+        document.head.appendChild(script);
+    </script>
+
+    <script>
+        setTimeout(function() {
+            scSDK.load('v1', (sdk) => console.log('loaded SC SDK v1', sdk));
+        }, 2000);
+    </script>
+    <script>
+        scSDK.load('v2', (sdk) => console.log('Angular loaded SC SDK v2', sdk));
+    </script>
+</head>
+<body ng-app="app">
+<ul>
+    <li><a ui-sref="home">Home</a></li>
+</ul>
+<ui-view></ui-view>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "vue-fragment-app",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Stas",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack"
+  },
+  "dependencies": {
+    "vue": "^2.5.3",
+    "node-static": "^0.7.10"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "style-loader": "^0.13.1",
+    "vue-loader": "^13.0.5",
+    "vue-template-compiler": "^2.5.3",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  }
+}
