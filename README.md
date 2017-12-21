@@ -7,6 +7,15 @@ Every fragments app
 npm i
 npm run build
 ```
+
+Build shopping cart SDK
+
+```
+npm i
+npm run build
+```
+
+
 Root folder
 
 ```
@@ -14,6 +23,15 @@ npm i
 node index
 
 http://localhost:8080/index
+```
+
+Use optimizer requirejs
+
+```
+
+npm install -g requirejs
+r.js -o build.js optimize=none
+
 ```
 
 ## Built With 
@@ -27,3 +45,9 @@ http://localhost:8080/index
 ## Description
 Make friends Vue, React, Angular application using Tailor.
 Create AMD global modules system 
+
+
+
+#Summory
+
+After 

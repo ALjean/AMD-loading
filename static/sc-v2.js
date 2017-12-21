@@ -1,6 +1,6 @@
 console.log('entered SC SDK v2');
 
-define(() => {
+PP.define(() => {
     return {
         data: 'data SDK v2'
     };

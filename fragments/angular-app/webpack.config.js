@@ -7,7 +7,6 @@ module.exports = {
         publicPath: '/dist/',
         filename: 'angular.bundle.js'
     },
-
     module: {
         rules : [
             {

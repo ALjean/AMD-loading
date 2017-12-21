@@ -22,7 +22,7 @@ const vueApp = new nodeStatic.Server(getFramesStaticPath(APP_NAMES.vue));
 const reactApp = new nodeStatic.Server(getFramesStaticPath(APP_NAMES.react));
 
 const tailor = new Tailor({
-    templatesPath: __dirname + '/templates'
+    templatesPath: __dirname + '/templates',
 });
 
 // Root Server
@@ -42,6 +42,36 @@ http
             });
             return;
         }
+
+        if (req.url.startsWith('/static')) {
+            fs.readFile(path.join(__dirname, req.url), (err, data) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    res.end(`Error getting the file: ${err}.`);
+                } else {
+                    res.setHeader('Content-type', 'text/javascript');
+                    res.end(data);
+                }
+            });
+            return;
+        }
+
+        if (req.url.startsWith('/sdk-static')) {
+            fs.readFile(path.join(__dirname, 'SDK', req.url), (err, data) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    res.end(`Error getting the file: ${err}.`);
+                } else {
+                    res.setHeader('Content-type', 'text/javascript');
+                    res.end(data);
+                }
+            });
+            return;
+        }
+
+
 
         if (req.url.startsWith('/vue')) {
             fs.readFile(path.join(getFramesStaticPath(APP_NAMES.vue), req.url), (err, data) => {
