@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "replace-bundle-webpack-plugin": "^1.0.0",
     "webpack": "^3.6.0"
   },
   "dependencies": {

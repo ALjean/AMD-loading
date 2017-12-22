@@ -1,5 +1,3 @@
-define(() => {
-    return {
-        data: 'data SDK v1'
-    };
-});
+export default {
+    data: 'data SDK v1'
+}

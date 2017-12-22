@@ -1,5 +1,8 @@
 const path = require("path");
-const webpack = require("webpack");
+const ReplaceBundleStringPlugin = require('replace-bundle-webpack-plugin');
+
+const REQUIRE_NAMESPACE = '';
+
 
 module.exports = {
     entry: {
@@ -9,7 +12,10 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "./sdk-static"),
         publicPath: "/sdk-static/",
-        filename: '[name].js'
+        filename: '[name].js',
+        libraryExport: "default",
+        library: "[name]",
+        libraryTarget: 'umd'
     },
 
     module: {
@@ -23,8 +29,17 @@ module.exports = {
 
     },
     plugins: [
-        new webpack.DefinePlugin({
+
+        /*Not working with Webpack defined*/
+        /*new webpack.DefinePlugin({
             'define': 'PP.define',
-        })
+        })*/
+
+        new ReplaceBundleStringPlugin([{
+            partten: `define([], factory)`,
+            replacement: function () {
+                return `${REQUIRE_NAMESPACE}.define([], factory)`;
+            }
+        }]),
     ]
 };
