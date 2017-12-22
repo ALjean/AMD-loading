@@ -1,5 +1,5 @@
 define(() => {
     return {
-        data: 'data SDK v1'
+        data: 'data SDK v2'
     };
 });
