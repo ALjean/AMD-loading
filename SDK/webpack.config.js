@@ -1,7 +1,7 @@
 const path = require("path");
 const ReplaceBundleStringPlugin = require('replace-bundle-webpack-plugin');
 
-const REQUIRE_NAMESPACE = '';
+const REQUIRE_NAMESPACE = 'PP';
 
 
 module.exports = {
