@@ -11,10 +11,8 @@ npm run build
 Build shopping cart SDK
 
 ```
-npm i
-npm run build
+npm i && npm run build
 ```
-
 
 Root folder
 
