@@ -18,11 +18,6 @@ let app = angular.module('app', [])
                         self.sdkDataV1 = sdk.data
                     });
 
-                    PP.require([`sc-v1`],  (sdk) => {
-                        console.log(`Angular call ${sdk.data}`);
-                        self.sdkDataV1 = sdk.data
-                    });
-
                 }, 1500);
 
                 $timeout(()=> {
