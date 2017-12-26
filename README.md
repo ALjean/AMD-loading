@@ -43,9 +43,3 @@ r.js -o build.js optimize=none
 ## Description
 Make friends Vue, React, Angular application using Tailor.
 Create AMD global modules system 
-
-
-
-#Summory
-
-After 
