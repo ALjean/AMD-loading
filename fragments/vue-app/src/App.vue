@@ -18,13 +18,13 @@
         },
         methods: {
             loadSdk () {
-                scSDK.load('v1', (sdk) => {
+                PP.require([`sc-v1`], (sdk) => {
                     console.log(`Vue call ${sdk.data}`);
                     this.sdkDataV1 = sdk.data
                 });
 
                 setTimeout(() => {
-                    scSDK.load('v2', (sdk) => {
+                    PP.require([`sc-v2`], (sdk) => {
                         console.log(`Vue call ${sdk.data}`);
                         this.sdkDataV2 = sdk.data
                     });

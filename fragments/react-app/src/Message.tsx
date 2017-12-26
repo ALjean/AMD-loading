@@ -21,12 +21,12 @@ class Message extends React.Component<MessageProps, MessageStates> {
     }
 
     componentDidMount() {
-        (window as any).scSDK.load('v1', (sdk:any) => {
+        (window as any).PP.require([`sc-v1`], (sdk:any) => {
             console.log(sdk.data);
             this.setState({sdkDataV1: sdk.data});
         });
 
-        (window as any).scSDK.load('v2', (sdk:any) => {
+        (window as any).PP.require([`sc-v2`], (sdk:any) => {
             console.log(sdk.data);
             this.setState({sdkDataV2: sdk.data});
         });

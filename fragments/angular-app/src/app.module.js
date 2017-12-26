@@ -13,16 +13,22 @@ let app = angular.module('app', [])
             this.loadSDk= function () {
 
                 $timeout(()=> {
-                    scSDK.load('v1', (sdk) => {
+                    PP.require([`sc-v1`],  (sdk) => {
                         console.log(`Angular call ${sdk.data}`);
                         self.sdkDataV1 = sdk.data
                     });
+
+                    PP.require([`sc-v1`],  (sdk) => {
+                        console.log(`Angular call ${sdk.data}`);
+                        self.sdkDataV1 = sdk.data
+                    });
+
                 }, 1500);
 
                 $timeout(()=> {
-                    scSDK.load('v2', (sdk) => {
+                    PP.require([`sc-v2`],  (sdk) => {
                         console.log(`Angular call ${sdk.data}`);
-                        self.sdkDataV2 = sdk.data
+                        self.sdkDataV1 = sdk.data
                     });
                 }, 1600);
 

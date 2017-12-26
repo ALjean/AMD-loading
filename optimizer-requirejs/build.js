@@ -7,7 +7,7 @@
         //modules section below will refer to the require.js
         //contents.
         paths: {
-            requireLib: 'almond'
+            requireLib: 'require'
         },
 
         //Indicates the namespace to use for require/requirejs/define.
@@ -16,7 +16,7 @@
         modules: [
             {
                 name: "PP",
-                include: ["requireLib", "main"],
+                include: ["requireLib"],
                 //True tells the optimizer it is OK to create
                 //a new file foo.js. Normally the optimizer
                 //wants foo.js to exist in the source directory.

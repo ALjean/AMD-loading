@@ -2,19 +2,15 @@
     <head>
         <title>Load SDK</title>
 
-        <script src="http://localhost:8080/static/require.js"></script>
+        <script src="http://localhost:8080/static/require.js" data-main="http://localhost:8080/static/config.js"></script>
 
-        <script>
+<!--        <script>
             scSDK = {
                 load(version, callback) {
-                    PP.require.config({
-                        baseUrl: 'http://localhost:8080/sdk-static',
-                    });
                     PP.require([`sc-${version}`], callback);
                 }
             };
-        </script>
-
+        </script>-->
 
     </head>
     <body>
